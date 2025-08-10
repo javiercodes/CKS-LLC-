@@ -15,17 +15,16 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <Container>
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20 py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <img
-              src="/logo-placeholder.svg"
-              alt={COMPANY.name}
-              className="h-10 w-auto"
-            />
-            <span className="ml-3 text-xl font-bold text-gray-900 hidden sm:block">
-              CKS
-            </span>
+            <a href="#" className="flex items-center" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+              <img
+                src="/cks-logo.png"
+                alt={COMPANY.name}
+                className="h-16 sm:h-18 w-16 sm:w-18 object-contain hover:opacity-90 transition-opacity"
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
