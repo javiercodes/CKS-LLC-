@@ -1,11 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Container from './Container';
 import { COMPANY, CONTACT } from '@/lib/constants';
+import { useScrollPosition } from '@/hooks/useScrollPosition';
+import { buttonPress, getReducedMotion } from '@/lib/animations';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isScrolled } = useScrollPosition(24);
+  const reducedMotion = getReducedMotion();
 
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -13,7 +18,18 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <motion.header 
+      className={`bg-white sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'shadow-lg backdrop-blur-md bg-white/95' 
+          : 'shadow-sm'
+      }`}
+      initial={false}
+      animate={{
+        backdropFilter: isScrolled ? 'blur(12px)' : 'blur(0px)',
+      }}
+      transition={{ duration: 0.3 }}
+    >
       <Container>
         <div className="flex items-center justify-between h-20 py-4">
           {/* Logo */}
@@ -35,12 +51,20 @@ export default function Header() {
             >
               {CONTACT.phones.alejandro}
             </a>
-            <button
+            <motion.button
               onClick={scrollToContact}
               className="btn-primary"
+              variants={reducedMotion ? {} : buttonPress}
+              initial="rest"
+              whileHover="rest"
+              whileTap="press"
+              animate={{
+                scale: isScrolled ? 0.98 : 1,
+              }}
+              transition={{ duration: 0.2 }}
             >
               Request Service
-            </button>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -67,16 +91,20 @@ export default function Header() {
               >
                 Call {CONTACT.phones.alejandro}
               </a>
-              <button
+              <motion.button
                 onClick={scrollToContact}
                 className="btn-primary w-full"
+                variants={reducedMotion ? {} : buttonPress}
+                initial="rest"
+                whileHover="rest"
+                whileTap="press"
               >
                 Request Service
-              </button>
+              </motion.button>
             </div>
           </div>
         )}
       </Container>
-    </header>
+    </motion.header>
   );
 } 
