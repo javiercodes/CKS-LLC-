@@ -1,3 +1,4 @@
+
 # CKS – Commercial Kitchen Solutions
 
 A modern, responsive landing page for CKS Commercial Kitchen Solutions built with Next.js 14, TypeScript, and Tailwind CSS.
@@ -154,4 +155,4 @@ For technical questions about this codebase, please refer to:
 
 ---
 
-Built with ❤️ for CKS – Commercial Kitchen Solutions 
+Built with ❤️ for CKS – Commercial Kitchen Solutions
