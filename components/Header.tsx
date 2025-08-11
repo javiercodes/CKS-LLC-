@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Container from './Container';
 import { COMPANY, CONTACT } from '@/lib/constants';
@@ -35,10 +36,13 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <a href="#" className="flex items-center" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-              <img
+              <Image
                 src="/cks-logo.png"
                 alt={COMPANY.name}
+                width={72}
+                height={72}
                 className="h-16 sm:h-18 w-16 sm:w-18 object-contain hover:opacity-90 transition-opacity"
+                priority
               />
             </a>
           </div>

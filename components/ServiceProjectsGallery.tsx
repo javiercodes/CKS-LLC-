@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Container from './Container';
 import SectionHeading from './SectionHeading';
@@ -146,9 +147,11 @@ export default function ServiceProjectsGallery() {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="relative overflow-hidden">
-                      <img 
+                      <Image 
                         src={project.image} 
                         alt={project.title}
+                        width={400}
+                        height={192}
                         className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
@@ -183,7 +186,7 @@ export default function ServiceProjectsGallery() {
         >
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto">
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Don't See Your Project Type?
+              Don&apos;t See Your Project Type?
             </h3>
             <p className="text-gray-600 mb-6">
               We handle all types of commercial kitchen projects. From custom installations 
