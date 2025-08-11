@@ -13,6 +13,7 @@ import AnimatedText from '@/components/AnimatedText';
 import AnimatedSection from '@/components/AnimatedSection';
 import StatCard from '@/components/StatCard';
 import FloatingCard from '@/components/FloatingCard';
+import ServiceProjectsGallery from '@/components/ServiceProjectsGallery';
 import { 
   COMPANY, 
   CONTACT, 
@@ -190,6 +191,9 @@ export default function HomePage() {
             </AnimatedSection>
           </Container>
         </section>
+
+        {/* Recent Projects by Service */}
+        <ServiceProjectsGallery />
 
         {/* About Section */}
         <section id="about" className="bg-white py-20">

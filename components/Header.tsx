@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Container from './Container';
 import { COMPANY, CONTACT } from '@/lib/constants';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
@@ -69,41 +69,109 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button
+            <motion.button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-600 hover:text-gray-900 p-2"
+              className="text-gray-600 hover:text-gray-900 p-2 relative"
               aria-label="Toggle menu"
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.1 }}
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+              <div className="w-6 h-6 flex flex-col justify-center items-center">
+                <motion.span
+                  className="block h-0.5 w-6 bg-current mb-1"
+                  animate={{
+                    rotate: mobileMenuOpen ? 45 : 0,
+                    y: mobileMenuOpen ? 6 : 0,
+                  }}
+                  transition={{ duration: reducedMotion ? 0.1 : 0.2 }}
+                />
+                <motion.span
+                  className="block h-0.5 w-6 bg-current mb-1"
+                  animate={{
+                    opacity: mobileMenuOpen ? 0 : 1,
+                  }}
+                  transition={{ duration: reducedMotion ? 0.1 : 0.2 }}
+                />
+                <motion.span
+                  className="block h-0.5 w-6 bg-current"
+                  animate={{
+                    rotate: mobileMenuOpen ? -45 : 0,
+                    y: mobileMenuOpen ? -6 : 0,
+                  }}
+                  transition={{ duration: reducedMotion ? 0.1 : 0.2 }}
+                />
+              </div>
+            </motion.button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t">
-            <div className="flex flex-col space-y-4">
-              <a
-                href={`tel:${CONTACT.phones.alejandro}`}
-                className="text-gray-600 hover:text-gray-900 transition-colors text-center"
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div 
+              className="md:hidden border-t border-gray-200 overflow-hidden"
+              initial={{ 
+                height: 0,
+                opacity: 0,
+              }}
+              animate={{ 
+                height: "auto",
+                opacity: 1,
+              }}
+              exit={{ 
+                height: 0,
+                opacity: 0,
+              }}
+              transition={{ 
+                duration: reducedMotion ? 0.1 : 0.3,
+                ease: "easeInOut",
+              }}
+            >
+              <motion.div 
+                className="py-4 bg-white"
+                initial={{ y: -10 }}
+                animate={{ y: 0 }}
+                exit={{ y: -10 }}
+                transition={{ 
+                  duration: reducedMotion ? 0.1 : 0.2,
+                  delay: reducedMotion ? 0 : 0.1,
+                }}
               >
-                Call {CONTACT.phones.alejandro}
-              </a>
-              <motion.button
-                onClick={scrollToContact}
-                className="btn-primary w-full"
-                variants={reducedMotion ? {} : buttonPress}
-                initial="rest"
-                whileHover="rest"
-                whileTap="press"
-              >
-                Request Service
-              </motion.button>
-            </div>
-          </div>
-        )}
+                <div className="flex flex-col space-y-4">
+                  <motion.a
+                    href={`tel:${CONTACT.phones.alejandro}`}
+                    className="text-gray-600 hover:text-gray-900 transition-colors text-center py-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ 
+                      duration: reducedMotion ? 0.1 : 0.2,
+                      delay: reducedMotion ? 0 : 0.15,
+                    }}
+                  >
+                    Call {CONTACT.phones.alejandro}
+                  </motion.a>
+                  <motion.button
+                    onClick={scrollToContact}
+                    className="btn-primary w-full"
+                    variants={reducedMotion ? {} : buttonPress}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    whileHover="rest"
+                    whileTap="press"
+                    transition={{ 
+                      duration: reducedMotion ? 0.1 : 0.2,
+                      delay: reducedMotion ? 0 : 0.2,
+                    }}
+                  >
+                    Request Service
+                  </motion.button>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Container>
     </motion.header>
   );
