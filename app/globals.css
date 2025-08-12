@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   html {
@@ -11,6 +11,9 @@
   
   body {
     font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #1f2937;
   }
 
   /* Respect user motion preferences */
@@ -27,75 +30,194 @@
 }
 
 @layer components {
+  /* Section Index Numbers */
+  .section-index {
+    @apply text-sm font-medium text-gray-400 uppercase tracking-[0.2em] mb-8;
+    font-weight: 500;
+  }
+
+  /* Typography Scale */
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-[0.02em] leading-[1.1];
+    font-weight: 800;
+  }
+
+  .heading-lg {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.02em] leading-[1.2];
+    font-weight: 700;
+  }
+
+  .heading-md {
+    @apply text-xl md:text-2xl font-semibold uppercase tracking-[0.01em] leading-[1.3];
+    font-weight: 600;
+  }
+
+  .heading-sm {
+    @apply text-lg font-semibold uppercase tracking-[0.01em] leading-[1.4];
+    font-weight: 600;
+  }
+
+  .body-lg {
+    @apply text-lg font-light leading-relaxed;
+    font-weight: 300;
+  }
+
+  .body-base {
+    @apply text-base font-normal leading-relaxed;
+    font-weight: 400;
+  }
+
+  .body-sm {
+    @apply text-sm font-normal leading-relaxed;
+    font-weight: 400;
+  }
+
+  /* Buttons */
   .btn-primary {
-    @apply bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
-    position: relative;
-    overflow: hidden;
+    @apply bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-8 uppercase tracking-[0.1em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+    font-weight: 600;
+    border: none;
+    border-radius: 0;
   }
-  
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
-    border-radius: 50%;
-    pointer-events: none;
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
   }
-  
-  .btn-primary:hover::before {
-    width: 200px;
-    height: 200px;
-  }
-  
+
   .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-gray-900 font-semibold py-3 px-6 rounded-xl border border-gray-300 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+    @apply bg-transparent hover:bg-red-600 text-gray-900 hover:text-white font-semibold py-4 px-8 border-2 border-gray-900 hover:border-red-600 uppercase tracking-[0.1em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+    font-weight: 600;
+    border-radius: 0;
   }
-  
+
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Cards */
   .card {
-    @apply bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-200;
+    @apply bg-white border border-gray-200 transition-all duration-300;
+    border-radius: 0;
+    box-shadow: none;
   }
 
-  /* Ripple effect for accessibility */
-  .btn-ripple {
-    position: relative;
-    overflow: hidden;
+  .card:hover {
+    @apply border-gray-300;
+    transform: translateY(-2px);
   }
 
-  .btn-ripple::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
+  /* Project Cards */
+  .project-card {
+    @apply bg-white border border-gray-200 overflow-hidden transition-all duration-300;
+    border-radius: 0;
   }
 
-  .btn-ripple:focus::after,
-  .btn-ripple:active::after {
-    width: 200px;
-    height: 200px;
+  .project-card:hover {
+    @apply border-gray-300;
+    transform: translateY(-4px);
   }
 
-  /* Smooth text reveal */
-  .text-reveal {
-    overflow: hidden;
+  /* Service Cards */
+  .service-card {
+    @apply bg-white border border-gray-200 p-8 transition-all duration-300;
+    border-radius: 0;
+    box-shadow: none;
   }
 
-  .text-reveal > * {
-    transform: translateY(100%);
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  .service-card:hover {
+    @apply border-red-600;
+    transform: translateY(-2px);
   }
 
-  .text-reveal.in-view > * {
-    transform: translateY(0);
+  /* Form Elements */
+  .input-field {
+    @apply w-full px-4 py-4 border border-gray-300 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all duration-200 bg-white;
+    border-radius: 0;
+    outline: none;
+  }
+
+  .input-field::placeholder {
+    @apply text-gray-500;
+    font-weight: 400;
+  }
+
+  /* Section Dividers */
+  .section-divider {
+    @apply border-t border-gray-200;
+  }
+
+  .section-divider-thick {
+    @apply border-t-2 border-gray-300;
+  }
+
+  /* Eyebrow Labels */
+  .eyebrow-label {
+    @apply text-xs font-medium text-gray-500 uppercase tracking-[0.15em] mb-4;
+    font-weight: 500;
+  }
+
+  /* Grid Containers */
+  .grid-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section Spacing */
+  .section-padding {
+    @apply py-20 lg:py-32;
+  }
+
+  .section-padding-sm {
+    @apply py-16 lg:py-24;
+  }
+
+  /* Clean Lists */
+  .clean-list {
+    @apply space-y-4;
+  }
+
+  .clean-list-item {
+    @apply flex items-start space-x-3;
+  }
+
+  /* Muted Text */
+  .text-muted {
+    @apply text-gray-500;
+    font-weight: 400;
+  }
+
+  .text-muted-sm {
+    @apply text-sm text-gray-500;
+    font-weight: 400;
+  }
+
+  /* Footer specific styles */
+  .footer-bg {
+    @apply bg-gray-900 text-gray-300;
+  }
+
+  .footer-heading {
+    @apply text-white font-semibold uppercase tracking-[0.1em] mb-6;
+    font-weight: 600;
+  }
+
+  .footer-link {
+    @apply text-gray-400 hover:text-white transition-colors duration-200;
+  }
+
+  /* Utilities */
+  .border-light {
+    @apply border-gray-200;
+  }
+
+  .border-medium {
+    @apply border-gray-300;
+  }
+
+  .bg-light {
+    @apply bg-gray-50;
+  }
+
+  .bg-lighter {
+    @apply bg-gray-25;
   }
 } 

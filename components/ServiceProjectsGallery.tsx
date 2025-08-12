@@ -84,16 +84,15 @@ export default function ServiceProjectsGallery() {
   const reducedMotion = getReducedMotion();
 
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="bg-white section-padding border-t border-light">
       <Container>
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-20">
           <motion.div variants={reducedMotion ? {} : slideUp}>
-            <SectionHeading level="h2" centered className="mb-4">
-              Recent Projects by Service
-            </SectionHeading>
+            <div className="section-index">03 — 08</div>
+            <h2 className="heading-lg text-gray-900 mb-6">Recent Projects</h2>
           </motion.div>
           <motion.p 
-            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            className="body-lg text-gray-600 max-w-2xl mx-auto"
             variants={reducedMotion ? {} : slideUp}
           >
             Explore our completed projects organized by service type. Each project showcases 
@@ -108,10 +107,10 @@ export default function ServiceProjectsGallery() {
                 className="text-center lg:text-left"
                 variants={reducedMotion ? {} : slideInLeft}
               >
-                <h3 className="text-2xl lg:text-3xl font-semibold text-gray-900 mb-2">
+                <h3 className="heading-md text-gray-900 mb-4">
                   {serviceType.name}
                 </h3>
-                <p className="text-gray-600 text-lg">
+                <p className="body-base text-gray-600">
                   {serviceType.description}
                 </p>
               </motion.div>
@@ -134,7 +133,7 @@ export default function ServiceProjectsGallery() {
                 {serviceType.projects.map((project) => (
                   <motion.div 
                     key={project.id}
-                    className="card overflow-hidden group cursor-pointer"
+                    className="project-card group cursor-pointer"
                     variants={reducedMotion ? {} : slideUp}
                     whileHover={{ y: -6, scale: 1.02 }}
                     transition={{ duration: 0.3 }}

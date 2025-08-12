@@ -61,6 +61,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         setSubmitStatus('success');
+        // Reset form after successful submission
         setFormData({
           fullName: '',
           companyName: '',
@@ -85,11 +86,11 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit} className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Full Name */}
         <div>
-          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="fullName" className="block body-sm text-gray-700 mb-3 uppercase tracking-[0.1em]">
             Full Name *
           </label>
           <input
@@ -99,13 +100,13 @@ export default function ContactForm() {
             required
             value={formData.fullName}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="input-field"
           />
         </div>
 
         {/* Company Name */}
         <div>
-          <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="companyName" className="block body-sm text-gray-700 mb-3 uppercase tracking-[0.1em]">
             Company/Facility Name
           </label>
           <input
@@ -114,13 +115,13 @@ export default function ContactForm() {
             name="companyName"
             value={formData.companyName}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="input-field"
           />
         </div>
 
         {/* Phone */}
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="phone" className="block body-sm text-gray-700 mb-3 uppercase tracking-[0.1em]">
             Phone Number *
           </label>
           <input
@@ -130,13 +131,13 @@ export default function ContactForm() {
             required
             value={formData.phone}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="input-field"
           />
         </div>
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="email" className="block body-sm text-gray-700 mb-3 uppercase tracking-[0.1em]">
             Email Address *
           </label>
           <input
@@ -146,13 +147,13 @@ export default function ContactForm() {
             required
             value={formData.email}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="input-field"
           />
         </div>
 
         {/* Service Needed */}
         <div>
-          <label htmlFor="serviceNeeded" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="serviceNeeded" className="block body-sm text-gray-700 mb-3 uppercase tracking-[0.1em]">
             Service Needed
           </label>
           <select
@@ -160,7 +161,7 @@ export default function ContactForm() {
             name="serviceNeeded"
             value={formData.serviceNeeded}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="input-field"
           >
             <option value="">Select a service</option>
             {FORM_OPTIONS.services.map((service) => (
@@ -173,7 +174,7 @@ export default function ContactForm() {
 
         {/* Urgency */}
         <div>
-          <label htmlFor="urgency" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="urgency" className="block body-sm text-gray-700 mb-3 uppercase tracking-[0.1em]">
             Urgency
           </label>
           <select
@@ -181,7 +182,7 @@ export default function ContactForm() {
             name="urgency"
             value={formData.urgency}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="input-field"
           >
             <option value="">Select urgency</option>
             {FORM_OPTIONS.urgency.map((urgency) => (
@@ -194,7 +195,7 @@ export default function ContactForm() {
 
         {/* City */}
         <div>
-          <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="city" className="block body-sm text-gray-700 mb-3 uppercase tracking-[0.1em]">
             City
           </label>
           <input
@@ -203,13 +204,13 @@ export default function ContactForm() {
             name="city"
             value={formData.city}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="input-field"
           />
         </div>
 
         {/* County */}
         <div>
-          <label htmlFor="county" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="county" className="block body-sm text-gray-700 mb-3 uppercase tracking-[0.1em]">
             County
           </label>
           <select
@@ -217,7 +218,7 @@ export default function ContactForm() {
             name="county"
             value={formData.county}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="input-field"
           >
             <option value="">Select county</option>
             {FORM_OPTIONS.counties.map((county) => (
@@ -231,7 +232,7 @@ export default function ContactForm() {
 
       {/* Contact Method */}
       <div>
-        <label htmlFor="contactMethod" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="contactMethod" className="block body-sm text-gray-700 mb-3 uppercase tracking-[0.1em]">
           Preferred Contact Method
         </label>
         <select
@@ -239,7 +240,7 @@ export default function ContactForm() {
           name="contactMethod"
           value={formData.contactMethod}
           onChange={handleInputChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          className="input-field"
         >
           <option value="">Select method</option>
           {FORM_OPTIONS.contactMethods.map((method) => (
@@ -252,7 +253,7 @@ export default function ContactForm() {
 
       {/* Description */}
       <div>
-        <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="description" className="block body-sm text-gray-700 mb-3 uppercase tracking-[0.1em]">
           Brief Description
         </label>
         <textarea
@@ -261,7 +262,7 @@ export default function ContactForm() {
           rows={4}
           value={formData.description}
           onChange={handleInputChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent resize-none"
+          className="input-field resize-none"
           placeholder="Please describe your needs or any specific issues..."
         />
       </div>
@@ -275,9 +276,9 @@ export default function ContactForm() {
           required
           checked={formData.consent}
           onChange={handleInputChange}
-          className="mt-1 h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded"
+          className="mt-1 h-5 w-5 text-red-600 focus:ring-red-500 border-gray-300"
         />
-        <label htmlFor="consent" className="ml-3 text-sm text-gray-700">
+        <label htmlFor="consent" className="ml-3 body-sm text-gray-700">
           You may contact me about this request. *
         </label>
       </div>
@@ -293,7 +294,7 @@ export default function ContactForm() {
 
       {/* Status Messages */}
       {submitStatus === 'success' && (
-        <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
+        <div className="p-6 bg-green-50 border border-green-200">
           <p className="text-green-800 font-medium">
             Thank you! We&apos;ve received your request and will contact you soon.
           </p>
@@ -301,7 +302,7 @@ export default function ContactForm() {
       )}
 
       {submitStatus === 'error' && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+        <div className="p-6 bg-red-50 border border-red-200">
           <p className="text-red-800 font-medium">
             Sorry, there was an error submitting your request. Please try again or call us directly.
           </p>

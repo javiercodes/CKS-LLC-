@@ -30,26 +30,26 @@ export default function StatCard({ value, label, suffix = '' }: StatCardProps) {
   return (
     <motion.div
       ref={ref}
-      className="text-center p-4 bg-gray-50 rounded-xl"
+      className="text-center border border-gray-200 bg-white p-8"
       variants={reducedMotion ? {} : scaleIn}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      whileHover={{
-        scale: 1.02,
-        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+      whileHover={reducedMotion ? {} : {
+        y: -2,
+        borderColor: '#dc2626'
       }}
       transition={{ duration: 0.3 }}
       style={{ willChange: 'transform' }}
     >
       <motion.div 
-        className="text-2xl font-bold text-red-600 mb-1"
+        className="text-4xl font-bold text-red-600 mb-2"
         initial={{ scale: 0.8 }}
         animate={inView ? { scale: 1 } : { scale: 0.8 }}
         transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
       >
         {count}{suffix}
       </motion.div>
-      <div className="text-sm text-gray-600">{label}</div>
+      <div className="body-sm text-gray-600 uppercase tracking-[0.1em]">{label}</div>
     </motion.div>
   );
 } 

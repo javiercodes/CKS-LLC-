@@ -69,34 +69,35 @@ export default function HomePage() {
       
       <main>
         {/* Hero Section */}
-        <section className="bg-white py-20 lg:py-32">
+        <section className="bg-white section-padding">
           <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div
                 variants={reducedMotion ? {} : staggerContainer}
                 initial="hidden"
                 animate="visible"
               >
                 <motion.div variants={reducedMotion ? {} : slideInLeft}>
-                  <Badge className="mb-6">Family-Owned & Operated</Badge>
+                  <div className="section-index">01 — 08</div>
+                  <div className="eyebrow-label">Family-Owned & Operated</div>
                 </motion.div>
                 
                 <motion.div variants={reducedMotion ? {} : slideUp}>
                   <AnimatedText 
                     text={COMPANY.tagline}
-                    className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+                    className="heading-xl text-gray-900 mb-8"
                   />
                 </motion.div>
                 
                 <motion.p 
-                  className="text-xl text-gray-600 mb-8 leading-relaxed"
+                  className="body-lg text-gray-600 mb-12 max-w-lg"
                   variants={reducedMotion ? {} : slideUp}
                 >
                   {COMPANY.description}
                 </motion.p>
                 
                 <motion.div 
-                  className="flex flex-col sm:flex-row gap-4"
+                  className="flex flex-col sm:flex-row gap-6 mb-8"
                   variants={reducedMotion ? {} : slideUp}
                 >
                   <motion.button 
@@ -124,7 +125,7 @@ export default function HomePage() {
                 </motion.div>
                 
                 <motion.p 
-                  className="text-sm text-gray-500 mt-4"
+                  className="text-muted-sm"
                   variants={reducedMotion ? {} : slideUp}
                 >
                   Same-day service available • Licensed & Insured
@@ -141,7 +142,7 @@ export default function HomePage() {
                 <motion.img
                   src="/hero.png"
                   alt="Commercial kitchen with professional hood system"
-                  className="rounded-2xl shadow-lg w-full h-auto"
+                  className="border border-gray-200 w-full h-auto"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
@@ -153,16 +154,15 @@ export default function HomePage() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="bg-gray-50 py-20">
+        <section id="services" className="bg-light section-padding border-t border-light">
           <Container>
-            <AnimatedSection className="text-center mb-16">
+            <AnimatedSection className="text-center mb-20">
               <motion.div variants={reducedMotion ? {} : slideUp}>
-                <SectionHeading level="h2" centered className="mb-4">
-                  Our Services
-                </SectionHeading>
+                <div className="section-index">02 — 08</div>
+                <h2 className="heading-lg text-gray-900 mb-6">Our Services</h2>
               </motion.div>
               <motion.p 
-                className="text-lg text-gray-600 max-w-3xl mx-auto"
+                className="body-lg text-gray-600 max-w-2xl mx-auto"
                 variants={reducedMotion ? {} : slideUp}
               >
                 We solve any type of problem in commercial kitchens. From hood installation 
@@ -171,7 +171,7 @@ export default function HomePage() {
             </AnimatedSection>
             
             <AnimatedSection 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
               stagger={0.1}
             >
               {SERVICES.map((service) => (
@@ -196,15 +196,15 @@ export default function HomePage() {
         <ServiceProjectsGallery />
 
         {/* About Section */}
-        <section id="about" className="bg-white py-20">
+        <section id="about" className="bg-light section-padding border-t border-light">
           <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <AnimatedSection className="order-2 lg:order-1">
                 <motion.div variants={reducedMotion ? {} : slideInLeft}>
                   <motion.img
                     src="/services/about.png"
                     alt="CKS team working on commercial kitchen equipment"
-                    className="rounded-2xl shadow-lg w-full h-auto"
+                    className="border border-gray-200 w-full h-auto"
                     variants={reducedMotion ? {} : parallaxSlow}
                     animate="animate"
                     style={{ willChange: 'transform' }}
@@ -214,22 +214,20 @@ export default function HomePage() {
               
               <AnimatedSection className="order-1 lg:order-2">
                 <motion.div variants={reducedMotion ? {} : slideInRight}>
-                  <SectionHeading level="h2" className="mb-6">
-                    About CKS
-                  </SectionHeading>
+                  <div className="section-index">04 — 08</div>
+                  <h2 className="heading-lg text-gray-900 mb-8">About CKS</h2>
                 </motion.div>
                 
                 <motion.p 
-                  className="text-lg text-gray-600 mb-6 leading-relaxed"
+                  className="body-lg text-gray-600 mb-8"
                   variants={reducedMotion ? {} : slideInRight}
                 >
                   We are a family LLC—three brothers who combined their companies into one, 
-                  offering comprehensive commercial kitchen solutions. Our mission is simple: 
-                  keep commercial kitchens safe, compliant, and running smoothly.
+                  offering comprehensive commercial kitchen solutions.
                 </motion.p>
                 
                 <motion.p 
-                  className="text-lg text-gray-600 mb-8 leading-relaxed"
+                  className="body-base text-gray-600 mb-12"
                   variants={reducedMotion ? {} : slideInRight}
                 >
                   Whether it&apos;s cleaning issues, extraction and ventilation system repairs, 
@@ -238,7 +236,7 @@ export default function HomePage() {
                 </motion.p>
                 
                 <motion.div 
-                  className="grid grid-cols-2 gap-4 mb-8"
+                  className="grid grid-cols-2 gap-8 mb-8"
                   variants={reducedMotion ? {} : slideInRight}
                 >
                   <StatCard value={10} label="Years Experience" suffix="+" />
@@ -257,18 +255,17 @@ export default function HomePage() {
         </section>
 
         {/* Service Areas Section */}
-        <section id="service-areas" className="bg-gray-50 py-20">
+        <section id="service-areas" className="bg-white section-padding border-t border-light">
           <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <AnimatedSection>
                 <motion.div variants={reducedMotion ? {} : slideInLeft}>
-                  <SectionHeading level="h2" className="mb-6">
-                    Service Areas
-                  </SectionHeading>
+                  <div className="section-index">05 — 08</div>
+                  <h2 className="heading-lg text-gray-900 mb-8">Service Areas</h2>
                 </motion.div>
                 
                 <motion.p 
-                  className="text-lg text-gray-600 mb-8 leading-relaxed"
+                  className="body-lg text-gray-600 mb-12"
                   variants={reducedMotion ? {} : slideInLeft}
                 >
                   Rapid dispatch across Southern California. We serve all major counties 
@@ -276,19 +273,19 @@ export default function HomePage() {
                 </motion.p>
                 
                 <motion.div 
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8"
+                  className="clean-list mb-12"
                   variants={reducedMotion ? {} : slideInLeft}
                 >
-                                     {SERVICE_AREAS.map((area, index) => (
+                  {SERVICE_AREAS.map((area, index) => (
                      <motion.div 
                        key={area} 
-                       className="flex items-center group"
+                       className="clean-list-item"
                        initial={{ opacity: 0, x: -20 }}
                        animate={{ opacity: 1, x: 0 }}
                        style={{ transitionDelay: `${index * 0.1}s` }}
                      >
-                       <span className="text-red-600 mr-2">📍</span>
-                       <span className="text-gray-700">
+                       <span className="text-red-600 text-lg">📍</span>
+                       <span className="body-base text-gray-700">
                          {area}
                        </span>
                      </motion.div>
@@ -296,7 +293,7 @@ export default function HomePage() {
                 </motion.div>
 
                 <motion.p 
-                  className="text-base text-gray-600"
+                  className="text-muted"
                   variants={reducedMotion ? {} : slideInLeft}
                 >
                   Need service outside these areas? Call us—we may be able to help.
@@ -308,8 +305,8 @@ export default function HomePage() {
                   <motion.img
                     src="/map-image.png"
                     alt="Service areas map covering Southern California counties"
-                    className="rounded-2xl shadow-lg w-full h-auto"
-                    whileHover={{ scale: 1.02 }}
+                    className="border border-gray-200 w-full h-auto"
+                    whileHover={reducedMotion ? {} : { scale: 1.01 }}
                     transition={{ duration: 0.3 }}
                     style={{ willChange: 'transform' }}
                   />
@@ -320,16 +317,15 @@ export default function HomePage() {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="bg-white py-20">
+        <section className="bg-light section-padding border-t border-light">
           <Container>
-            <AnimatedSection className="text-center mb-16">
+            <AnimatedSection className="text-center mb-20">
               <motion.div variants={reducedMotion ? {} : slideUp}>
-                <SectionHeading level="h2" centered className="mb-4">
-                  Why Choose CKS?
-                </SectionHeading>
+                <div className="section-index">06 — 08</div>
+                <h2 className="heading-lg text-gray-900 mb-6">Why Choose CKS?</h2>
               </motion.div>
               <motion.p 
-                className="text-lg text-gray-600 max-w-3xl mx-auto"
+                className="body-lg text-gray-600 max-w-2xl mx-auto"
                 variants={reducedMotion ? {} : slideUp}
               >
                 Three brothers, one mission: exceptional commercial kitchen service you can trust.
@@ -337,7 +333,7 @@ export default function HomePage() {
             </AnimatedSection>
             
             <AnimatedSection 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
               stagger={0.15}
             >
               {WHY_CHOOSE_US.map((reason, index) => (
@@ -354,17 +350,16 @@ export default function HomePage() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="bg-gray-50 py-20">
+        <section id="contact" className="bg-white section-padding border-t border-light">
           <Container>
-            <div className="max-w-4xl mx-auto">
-              <AnimatedSection className="text-center mb-12">
+            <div className="max-w-6xl mx-auto">
+              <AnimatedSection className="text-center mb-16">
                 <motion.div variants={reducedMotion ? {} : slideUp}>
-                  <SectionHeading level="h2" centered className="mb-4">
-                    Request Service
-                  </SectionHeading>
+                  <div className="section-index">07 — 08</div>
+                  <h2 className="heading-lg text-gray-900 mb-6">Request Service</h2>
                 </motion.div>
                 <motion.p 
-                  className="text-lg text-gray-600"
+                  className="body-lg text-gray-600 max-w-2xl mx-auto"
                   variants={reducedMotion ? {} : slideUp}
                 >
                   Ready to solve your commercial kitchen problems? Fill out the form below 
