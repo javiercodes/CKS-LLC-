@@ -6,7 +6,7 @@ import SectionHeading from './SectionHeading';
 import AnimatedSection from './AnimatedSection';
 import { slideUp, slideInLeft, getReducedMotion } from '@/lib/animations';
 
-// Sample data organized by service type
+// Service projects using actual CKS photos
 const serviceProjects = [
   {
     id: 'hood-installation',
@@ -15,24 +15,24 @@ const serviceProjects = [
     projects: [
       {
         id: 1,
-        title: 'Fine Dining Restaurant',
-        location: 'Beverly Hills, CA',
-        image: '/hero.png', // Replace with actual project image
-        description: 'Custom hood installation with advanced fire suppression'
+        title: 'Commercial Kitchen Hood System',
+        location: 'Los Angeles County, CA',
+        image: '/CKS Service Images/service-1.jpeg',
+        description: 'Complete hood installation with fire suppression system'
       },
       {
         id: 2,
-        title: 'Hotel Kitchen Upgrade',
-        location: 'Santa Monica, CA',
-        image: '/services/about.png', // Replace with actual project image
-        description: 'Complete ventilation overhaul for 200-room hotel'
+        title: 'Restaurant Ventilation Upgrade',
+        location: 'Orange County, CA',
+        image: '/CKS Service Images/service-2.jpeg',
+        description: 'Professional ventilation system installation and testing'
       },
       {
         id: 3,
-        title: 'Food Court Installation',
-        location: 'Los Angeles, CA',
-        image: '/map-image.png', // Replace with actual project image
-        description: 'Multi-vendor hood system for shopping center'
+        title: 'Industrial Kitchen Hood',
+        location: 'Ventura County, CA',
+        image: '/CKS Service Images/service-3.jpeg',
+        description: 'Large-scale commercial hood system for industrial kitchen'
       }
     ]
   },
@@ -43,24 +43,24 @@ const serviceProjects = [
     projects: [
       {
         id: 4,
-        title: 'Restaurant Power Upgrade',
-        location: 'Orange County, CA',
-        image: '/hero.png', // Replace with actual project image
-        description: 'Electrical panel upgrade and equipment wiring'
+        title: 'Kitchen Electrical Systems',
+        location: 'Riverside County, CA',
+        image: '/CKS Service Images/service-4.jpeg',
+        description: 'Complete electrical wiring and panel upgrades'
       },
       {
         id: 5,
-        title: 'Kitchen Lighting Retrofit',
-        location: 'Long Beach, CA',
-        image: '/services/about.png', // Replace with actual project image
-        description: 'LED lighting conversion with energy savings'
+        title: 'Equipment Power Installation',
+        location: 'Santa Barbara County, CA',
+        image: '/CKS Service Images/service-5.jpeg',
+        description: 'High-voltage equipment installation and safety compliance'
       },
       {
-        id: 6,
-        title: 'Emergency Electrical Repair',
-        location: 'Pasadena, CA',
-        image: '/map-image.png', // Replace with actual project image
-        description: 'Same-day electrical repair for busy restaurant'
+        id: 7,
+        title: 'Commercial Electrical Maintenance',
+        location: 'Los Angeles County, CA',
+        image: '/CKS Service Images/service-7.jpeg',
+        description: 'Ongoing electrical system maintenance and safety inspections'
       }
     ]
   },
@@ -70,18 +70,11 @@ const serviceProjects = [
     description: 'Commercial kitchen plumbing solutions',
     projects: [
       {
-        id: 7,
-        title: 'Grease Trap Installation',
-        location: 'Riverside County, CA',
-        image: '/hero.png', // Replace with actual project image
-        description: 'Large capacity grease management system'
-      },
-      {
-        id: 8,
-        title: 'Kitchen Drain Cleaning',
-        location: 'Ventura County, CA',
-        image: '/services/about.png', // Replace with actual project image
-        description: 'Complete drain system cleaning and maintenance'
+        id: 6,
+        title: 'Commercial Plumbing Installation',
+        location: 'San Diego County, CA',
+        image: '/CKS Service Images/service-6.jpeg',
+        description: 'Professional plumbing systems and grease management'
       }
     ]
   }
@@ -124,7 +117,7 @@ export default function ServiceProjectsGallery() {
               </motion.div>
               
               <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-start"
                 variants={reducedMotion ? {} : {
                   hidden: {},
                   visible: {
