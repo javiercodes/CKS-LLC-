@@ -9,7 +9,7 @@ export const CONTACT = {
     alejandro: '323-450-6561',
     javier: '323-427-1740',
   },
-  email: 'hello@seventhmarketing.com',
+  email: 'CksolutionsLA@gmail.com',
 } as const;
 
 export const BRAND_COLORS = {

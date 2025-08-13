@@ -168,7 +168,7 @@ export async function POST(request: NextRequest) {
     // Send email via Resend
     const emailData = {
       from: 'CKS Leads <onboarding@resend.dev>',
-      to: ['hello@seventhmarketing.com'],
+      to: ['CksolutionsLA@gmail.com'],
       subject: `New Lead — CKS${body.urgency === 'Emergency—today' ? ' 🚨 EMERGENCY' : ''}`,
       html: generateEmailHTML(body),
     };
