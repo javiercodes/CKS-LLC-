@@ -166,7 +166,8 @@ export default function HomePage() {
                 variants={reducedMotion ? {} : slideUp}
               >
                 We solve any type of problem in commercial kitchens. From hood installation 
-                to electrical repair, our three-brother team has you covered.
+                to fire suppression systems, our certified and qualified technicians provide 
+                free estimates and have you covered.
               </motion.p>
             </AnimatedSection>
             

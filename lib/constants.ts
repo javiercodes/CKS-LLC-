@@ -20,6 +20,24 @@ export const BRAND_COLORS = {
 
 export const SERVICES = [
   {
+    id: 'kitchen-exhaust-hood',
+    title: 'Kitchen Exhaust Hood',
+    description: 'Professional installation, maintenance, and repair of commercial kitchen exhaust hoods for optimal ventilation.',
+    icon: '🏭',
+  },
+  {
+    id: 'exhaust-hood-cleaning',
+    title: 'Exhaust Hood Cleaning & Certification',
+    description: 'Comprehensive cleaning and certification services to ensure compliance and safety standards.',
+    icon: '🧽',
+  },
+  {
+    id: 'exhaust-fan-motor-repair',
+    title: 'Exhaust Fan & Motor Repair',
+    description: 'Expert repair and maintenance of exhaust fans and motors to keep your ventilation system running smoothly.',
+    icon: '🔧',
+  },
+  {
     id: 'hood-install-repair',
     title: 'Hood Installation & Repairs',
     description: 'Code-compliant installs, fast diagnostics, and durable repairs that keep your line moving.',
@@ -28,26 +46,20 @@ export const SERVICES = [
   {
     id: 'swamp-cooler',
     title: 'Evaporative Swamp Cooler',
-    description: 'Expert installation and repair of cooling systems to maintain optimal kitchen temperatures.',
+    description: 'Expert installation and equipment maintenance of cooling systems to maintain optimal kitchen temperatures.',
     icon: '❄️',
-  },
-  {
-    id: 'exhaust-cleaning',
-    title: 'Kitchen Exhaust Cleaning',
-    description: 'Professional cleaning services to ensure safety, compliance, and optimal performance.',
-    icon: '🧽',
   },
   {
     id: 'hood-filters',
     title: 'Hood Filter Sales & Service',
-    description: 'Quality filters and maintenance to keep your ventilation system running efficiently.',
+    description: 'Quality filters, sales and service, and maintenance to keep your ventilation system running efficiently.',
     icon: '🔧',
   },
   {
-    id: 'electrical',
-    title: 'Kitchen Electrical Repair',
-    description: 'Licensed electrical work for commercial kitchens, from troubleshooting to full installations.',
-    icon: '⚡',
+    id: 'fire-suppression',
+    title: 'Fire System Suppression',
+    description: 'New system installation, system updates, and fire extinguishers for complete fire safety solutions.',
+    icon: '🔥',
   },
   {
     id: 'plumbing',
@@ -64,7 +76,6 @@ export const SERVICE_AREAS = [
   'San Bernardino County',
   'Riverside County',
   'Santa Barbara County',
-  'San Diego County',
 ] as const;
 
 export const TARGET_CUSTOMERS = [
@@ -97,11 +108,13 @@ export const WHY_CHOOSE_US = [
 
 export const FORM_OPTIONS = {
   services: [
+    'Kitchen Exhaust Hood',
+    'Exhaust Hood Cleaning & Certification',
+    'Exhaust Fan & Motor Repair',
     'Hood Install/Repair',
     'Swamp Cooler',
-    'Exhaust Cleaning',
     'Hood Filters',
-    'Electrical',
+    'Fire System Suppression',
     'Plumbing',
     'Other',
   ],

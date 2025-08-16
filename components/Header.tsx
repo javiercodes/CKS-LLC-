@@ -32,16 +32,16 @@ export default function Header() {
       transition={{ duration: 0.3 }}
     >
       <Container>
-        <div className="flex items-center justify-between h-20 py-4">
+        <div className="flex items-center justify-between h-28 py-6">
           {/* Logo */}
           <div className="flex items-center">
             <a href="#" className="flex items-center" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
               <Image
                 src="/cks-logo.png"
                 alt={COMPANY.name}
-                width={72}
-                height={72}
-                className="h-16 sm:h-18 w-16 sm:w-18 object-contain hover:opacity-90 transition-opacity"
+                width={108}
+                height={108}
+                className="h-24 sm:h-27 w-24 sm:w-27 object-contain hover:opacity-90 transition-opacity"
                 priority
               />
             </a>
