@@ -172,7 +172,7 @@ export default function HomePage() {
             </AnimatedSection>
             
             <AnimatedSection 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8"
               stagger={0.1}
             >
               {SERVICES.map((service) => (
@@ -185,6 +185,7 @@ export default function HomePage() {
                     title={service.title}
                     description={service.description}
                     icon={service.icon}
+                    image={(service as any).image}
                     onLearnMore={scrollToContact}
                   />
                 </motion.div>

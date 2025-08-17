@@ -119,14 +119,16 @@
 
   /* Service Cards */
   .service-card {
-    @apply bg-white border border-gray-200 p-8 transition-all duration-300;
+    @apply bg-white border border-gray-200 transition-all duration-300;
     border-radius: 0;
     box-shadow: none;
+    min-height: 300px;
   }
 
   .service-card:hover {
     @apply border-red-600;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 
   /* Form Elements */
