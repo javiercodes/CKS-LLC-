@@ -121,7 +121,9 @@ export default function StructuredData() {
       "reviewCount": "47"
     },
     "openingHours": "Mo-Su 06:00-22:00",
-    "sameAs": []
+    "sameAs": [
+      "https://www.instagram.com/cks.chino_ca"
+    ]
   };
 
   return (
